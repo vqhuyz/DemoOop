@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DemoOOP.Models.Product>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<table class="table table-borderless">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Manufacture</th>
+            <th scope="col">Active</th>
+            <th scope="col">CreatedBy</th>
+            <th scope="col">Description</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <th>@item.Name</th>
+                <th>@item.Manufacture</th>
+                <th>@item.Active</th>
+                <th>@item.CreatedBy</th>
+                <th>@item.Description</th>
+                <th>
+                    <a href="@Url.Action("Create", "Home", new { id = item.Id})" class="btn btn-primary">Thêm mới</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Back", "Index", "Home")
